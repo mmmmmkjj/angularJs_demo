@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .register {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        用户名: <input type="text" ng-model="username" />
+        <br />
+        密码: <input type="number" ng-model="pwd">
+        <br />
+        <button class="register" ng-click="register()">注册</button>
+    </div>
+</body>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope,$http) {
+       $scope.register = function() {
+           var username = $scope.username,
+                   pwd = $scope.pwd;
+           var url = "http://localhost:8888/register?username=" + username + "&pwd=" + pwd;
+           $http.get(url).success(function(data) {
+               console.log(data);
+               if(data.err == 0) {
+                   alert(data.msg);
+               }else {
+                   alert(data.msg);
+               }
+           })
+       }
+    });
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义指令</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <!--3 种方式-->
+        <ysp-directive></ysp-directive>
+        <hr />
+        <div ysp-directive></div>
+        <hr />
+        <div class="ysp-directive"></div>
+        <!--class方法 加restrict:"C"-->
+        <hr />
+        <!-- directive:ysp-directive -->
+        <!--注释的方法 要注意 加restrict:"M"和 replace:true 所有标签要用一个根标签包裹 注释中directive前面加空格-->
+    </div>
+</body>
+<script>
+    //获取应用程序
+    var app = angular.module("myApp",[]);
+
+    //设置自定义指令
+    app.directive("yspDirective",function() {
+        return {
+            restrict: "ECMA",
+            replace: true,
+            template: "<div><h2>我长得帅 怪我喽</h2><p>长得帅的大多是弯的</p></div>"
+        }
+    });
+    app.controller("my")
+</script>
+</html>

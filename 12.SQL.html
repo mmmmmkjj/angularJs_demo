@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="customersCtrl">
+        <!--使 PHP 从MySQL中获取数据-->
+        <table>
+            <tr ng-repeat="x in names">
+                <td>{{x.Name}}</td>
+                <td>{{x.Country}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("customersCtrl",function($http,$scope) {
+        $http.get("tsconfig.json").success(function(response) {
+            $scope.names = response.records;
+        });
+    });
+</script>
+</html>

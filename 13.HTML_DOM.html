@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML DOM</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="" ng-init="mySwitch=true">
+        <p>
+            <!--ng-disabled 指令直接绑定应用程序数据到 HTML 的 disabled 属性。-->
+            <button ng-disabled="mySwitch">点我</button>
+        </p>
+        <p>
+            <input type="checkbox" ng-model="mySwitch" />按钮
+        </p>
+        <p>
+            {{mySwitch}}
+        </p>
+
+        <hr />
+        <!--ng-show 指令隐藏或显示一个 HTML 元素。-->
+        <p ng-show="true">我是可见的</p>
+        <p ng-show="false">我是不可见的</p>
+        <p ng-show="hour > 12">我是可见的2</p>
+        <hr />
+        <!--ng-hide 指令用于隐藏或显示 HTML 元素。-->
+        <p ng-hide="true">我是不可见的</p>
+        <p ng-hide="false">我是可见的3</p>
+    </div>
+</body>
+</html>

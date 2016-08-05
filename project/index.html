@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .register {
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        姓名: <input type="text" ng-model="name" />
+        <br />
+        年龄: <input type="number" ng-model="age">
+        <br />
+        爱好: <textarea cols="30" rows="10" ng-model="hobby"></textarea>
+        <br />
+        <button class="register" ng-click="register()">注册</button>
+    </div>
+</body>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope,$http) {
+       $scope.register = function() {
+           var name = $scope.name,
+               age = $scope.age,
+               hobby = $scope.hobby;
+           var url = "http://localhost:8888/register?name="+ name +"&age="+age+"&hobby="+hobby;
+           $http.get(url).success(function(data) {
+              console.log(data);
+           });
+       }
+    });
+</script>
+</html>

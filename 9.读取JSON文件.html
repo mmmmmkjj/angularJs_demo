@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>读取JSON文件</title>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp">
+        <div ng-controller="customerCtrl">
+            <ul>
+                <li ng-repeat="x in names">
+                    {{"姓名：" + x.Name + "城市：" + x.City + " " + x.Country}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("customerCtrl",function($scope,$http) {
+            $http.get("tsconfig.json").success(function(res) {
+               $scope.names = res.records;
+            });
+        })
+    </script>
+</body>
+</html>

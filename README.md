@@ -1,4 +1,21 @@
 # angularJs_demo
 
-there are some angularJs test demo for new angular-developer  
-guan
+### angularJS初学者联系demo整理
+* 事件
+* 指令
+* 过滤器
+* 服务
+* 读取JSON文件
+* 表格
+* 选择框
+* 模块
+* SQL
+* DOM
+* 模块
+* 输入验证
+* API
+* 与bootstracp联用
+* 动画
+* 包含
+* 依赖注入
+* 路由
